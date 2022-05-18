@@ -86,10 +86,14 @@ export default function Context2() {
             </Typography>
             {/* TODO cambiar la pregunta y opciones */}
             <Typography id="transition-modal-description" sx={{ mt: 2 }}>
-              ¿Qué decidió estudiar Sergio fajardo?
+              Sergio fajardo se lanzó para la...
             </Typography>
-            <Link variant="contained" sx={{mt:2}} href="/context2/opcion1">Matemáticas</Link>
-            <Link variant="contained" sx={{mt:2}} href="/context2/opcion2">Astronomía</Link>
+            <Button>
+            <Link sx={{mt:2}} href="/context2/opcion2">Gobernación</Link>
+            </Button>
+            <Button>
+            <Link sx={{mt:2}} href="/context2/opcion1">Alcaldía</Link>
+            </Button>
           </Box>
         </Fade>
       </Modal>

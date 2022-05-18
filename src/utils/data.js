@@ -1,19 +1,19 @@
 let medals = {
   uno: [
   "Conocedor de estudios", 
-  " Falta de conocimientos"
+  "Ups... respuesta incorrecta"
   ],
   dos: [
   "Conocimiento político", 
-  "Olvido político"
+  "Ups... respuesta incorrecta"
   ],
   tres: [
   "Conocedor de megaobras", 
-  "Falla del proceso político"
+  "Ups... respuesta incorrecta"
   ],
   cuatro: [
   "Conocedor de obras", 
-  "Falla histórica"
+  "Ups... respuesta incorrecta"
   ],
 };
 

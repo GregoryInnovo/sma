@@ -12,6 +12,7 @@ export default function Incorrect1() {
       videoId="Isib0r6DPGM"
       medalMessage={medals.dos[1]}
       value={2}
+      secondsReturn={10}
     />
   )
 }

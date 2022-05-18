@@ -16,6 +16,10 @@ import Fade from '@mui/material/Fade';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 
+/* 
+  Importar imágenes
+*/
+import imgs from "@assets/img/imgs.js";
 
 const style = {
   position: 'absolute',
@@ -36,12 +40,30 @@ export default function Context1() {
 
  const [isEnd, setIsEnd] = useState(false);
  const [seconds, setSeconds] = useState(0);
+ const [visible, setIsVisible] = useState(false);
  const [open, setOpen] = useState(false);
  const handleOpen = () => setOpen(true);
  const handleClose = () => setOpen(false);
 
  const { secVideo } = useContext(AppContext);
  const [ sharedState ] = secVideo;
+
+  useEffect(() => {
+    let vid = document.getElementById("myVideo");
+    vid.currentTime = sharedState;
+    vid.webkitRequestFullScreen();
+    
+    vid.addEventListener("timeupdate", function(){
+        //currentTime use second, if you want min *60
+    if(vid.currentTime >= 10) {
+          setIsVisible(true);
+        } else if(vid.currentTime >= 45) {
+      vid.pause();
+        }
+    });
+
+    
+  }, [])
 
   return (
     <div className={styles.container}>
@@ -52,55 +74,24 @@ export default function Context1() {
       </Head>
 
       <main>
-        <YouTube 
-          videoId="hrsL-El8Lus" 
-          opts={{
-            height: "780",
-            width: "100%",
-            playerVars: {
-              autoplay: 1,
-              start: sharedState,
-          }}}
-          onEnd={() => {
-            setIsEnd(true)
-            handleOpen()
-          }}
-        />
-       
-      <Modal
-        aria-labelledby="transition-modal-title"
-        aria-describedby="transition-modal-description"
-        open={open}
-        onClose={handleClose}
-        closeAfterTransition
-        BackdropComponent={Backdrop}
-        BackdropProps={{
-          timeout: 500,
-        }}
-      >
-        <Fade in={open}>
-          <Box sx={style}>
-            <Typography id="transition-modal-title" variant="h6" component="h2">
-              Pregunta 1
-            </Typography>
-            <Typography id="transition-modal-description" sx={{ mt: 2 }}>
+        <video id="myVideo" src="https://res.cloudinary.com/gregoryinnovo/video/upload/v1652886794/1_zd5zh4.mp4" width="100%" height="780" controls autoPlay>
+              <source src="movie.mp4" type="video/mp4" />
+        </video>
+        {
+          visible && 
+            <div className="containerOptions">
+              <Typography sx={{ mt: 2, backgroundColor: "primary.dark", color: "white", fontWeight: "bold", fontSize: 18, textAlign: "center", p:1 }}>
               ¿Qué decidió estudiar Sergio fajardo?
             </Typography>
-            <Link variant="contained" sx={{mt:2}} href="/context1/opcion1">Matemáticas</Link>
-            <Link variant="contained" sx={{mt:2}} href="/context1/opcion2">Astronomía</Link>
-          </Box>
-        </Fade>
-      </Modal>
-        {
-          isEnd &&
-          (
-            <div className={styles.containerOptions}>
-              <h3 className={styles.titleOptions}>
-                ¿Qué deberias hacer?
-              </h3>
-              <Button onClick={handleOpen}>Abrir preguntas</Button>
+            <Button variant="contained" sx={{mt: 1, mb:1}}>
+              <img src={imgs[0]} alt="imagen de la opcion 1" width="150" height="150" />
+              <Link sx={{mt:2}} href="/context1/opcion1">Matemáticas</Link>
+            </Button>
+            <Button variant="contained" sx={{mt: 1, mb:1}}>
+              <img src={imgs[1]} alt="imagen de la opcion 2" width="150" height="150" />
+              <Link sx={{mt:2}} href="/context1/opcion2">Astronomía</Link>
+            </Button>
             </div>
-          )
         }
       </main>
     </div>

@@ -13,3 +13,20 @@ a {
 * {
   box-sizing: border-box;
 }
+
+button: hover {
+  background-color: white;
+}
+
+.containerOptions {
+  position: absolute;
+  top: 65%;
+  left: 50%;
+  transform: translate(-50%, -50%); 
+  background-color: transparent;
+  padding: 3rem;
+  width: 18rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}

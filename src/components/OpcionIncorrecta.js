@@ -17,12 +17,11 @@ const Alert = React.forwardRef(function Alert(props, ref) {
 /*
   Opción incorrecta del contexto 1
 */
-export default function OpcionIncorrecta({linkUrl, videoId, medalMessage, value}) {
+export default function OpcionIncorrecta({linkUrl, videoId, medalMessage, value, secondsReturn}) {
   const [isEnd, setIsEnd] = useState(false);
   
-  const { secVideo, userName, medallaUno, medallaDos, medallaTres, medallaCuatro } = useContext(AppContext);
+  const { secVideo, medallaUno, medallaDos, medallaTres, medallaCuatro } = useContext(AppContext);
   const [ sharedState, setSharedState ] = secVideo;
-  const [ name ] = userName;
   const [medalla1, setMedalla1 ] = medallaUno;
   const [medalla2, setMedalla2 ] = medallaDos;
   const [medalla3, setMedalla3 ] = medallaTres;
@@ -31,7 +30,7 @@ export default function OpcionIncorrecta({linkUrl, videoId, medalMessage, value}
   const [open, setOpen] = useState(false);
 
   const handleClick = () => {
-    sharedState = 15;
+    sharedState = secondsReturn;
     setSharedState(sharedState);
     setOpen(true);
   };
@@ -118,7 +117,6 @@ export default function OpcionIncorrecta({linkUrl, videoId, medalMessage, value}
           }}
         />
       </main>
-      <p>{name}</p>
       
     {
           isEnd &&
@@ -131,7 +129,7 @@ export default function OpcionIncorrecta({linkUrl, videoId, medalMessage, value}
 
        <Snackbar open={open} autoHideDuration={6000} onClose={handleClose}>
         <Alert onClose={handleClose} severity="error" sx={{ width: '100%' }}>
-          Medalla conseguida: {medalMessage}
+          {medalMessage}
         </Alert>
       </Snackbar>
     </div>
