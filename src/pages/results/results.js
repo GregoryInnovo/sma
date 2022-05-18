@@ -72,7 +72,30 @@ export default function Results() {
     let med2 = medalla2 === 2 ? medals.dos[0] : medals.dos[1];
     let med3 = medalla3 === 2 ? medals.tres[0] : medals.tres[1];
     let med4 = medalla4 === 2 ? medals.cuatro[0] : medals.cuatro[1];
-    return `${med1}, ${med2}, ${med3} y ${med4}`;
+
+    // return `${med1}, ${med2}, ${med3} y ${med4}`;
+    if (medalla1 === 2 && medalla2 === 2 && medalla3 === 2 && medalla4 === 2) {
+      return `ha conseguido las medallas:${med1}, ${med2}, ${med3} y ${med4}`;
+    } else if (medalla1 === 2 && medalla2 === 2 && medalla3 === 2) {
+      return `ha conseguido las medallas:${med1}, ${med2}, ${med3}`;
+    } else if (medalla3 === 2 && medalla4 === 2) {
+      return `ha conseguido las medallas:${med3} y ${med4}`;
+    } else if (medalla1 === 2 && medalla2 === 2) {
+      return `ha conseguido las medallas:${med1} y ${med2}`;
+    }
+    else if (medalla1 === 2 && medalla2 === 2) {
+      return `ha conseguido las medallas:${med1}, ${med2}`;
+    } else if (medalla1 === 2) {
+      return `ha conseguido la medalla: ${med1}`;
+    } else if (medalla2 === 2) {
+      return `ha conseguido la medalla: ${med2}`;
+    } else if (medalla3 === 2) {
+      return `ha conseguido la medalla: ${med3}`;
+    } else if (medalla4 === 2) {
+      return `ha conseguido la medalla: ${med4}`;
+    } else {
+      return `no ha conseguido ninguna medalla`;
+    }
   };
 
   const youtubeUrl = "https://youtu.be/GdVpr208yIQ";
@@ -88,16 +111,16 @@ export default function Results() {
 
       <main className={styles.main}>
         <Card sx={{ maxWidth: 645 }}>
-          <YouTube
-            videoId="hrsL-El8Lus"
-            opts={{
-              height: "480",
-              width: "100%",
-              playerVars: {
-                autoplay: 1,
-              },
-            }}
-          />
+          <video
+            id="myVideo"
+            src="https://res.cloudinary.com/gregoryinnovo/video/upload/v1652886872/5_fttuwb.mp4"
+            width="100%"
+            height="480"
+            controls
+            autoPlay
+          >
+            <source src="movie.mp4" type="video/mp4" />
+          </video>
           <CardContent>
             <Typography gutterBottom variant="h5" component="div">
               Tus resultados
@@ -105,44 +128,42 @@ export default function Results() {
             <Typography variant="body2" color="text.secondary">
               {nameUser()}
             </Typography>
-            <Typography gutterBottom variant="h5" component="div">
-              Insignias obtenidas
-            </Typography>
+            {medalla1 === 2 &&
+            medalla2 === 2 &&
+            medalla3 === 2 &&
+            medalla4 === 2 ? (
+              <Typography gutterBottom variant="h5" component="div">
+                Insignias obtenidas
+              </Typography>
+            ) : null}
+
             <Typography variant="body2" color="text.secondary">
               {medalla1 === 2 ? (
                 <AlertInfo severity="success" description={medals.uno[0]} />
-              ) : (
-                <AlertInfo severity="error" description={medals.uno[1]} />
-              )}
+              ) : null}
             </Typography>
             <Typography variant="body2" color="text.secondary">
               {medalla2 === 2 ? (
                 <AlertInfo severity="success" description={medals.dos[0]} />
-              ) : (
-                <AlertInfo severity="error" description={medals.dos[1]} />
-              )}
+              ) : null}
             </Typography>
             <Typography variant="body2" color="text.secondary">
               {medalla3 === 2 ? (
                 <AlertInfo severity="success" description={medals.tres[0]} />
-              ) : (
-                <AlertInfo severity="error" description={medals.tres[1]} />
-              )}
+              ) : null}
             </Typography>
             <Typography variant="body2" color="text.secondary">
               {medalla4 === 2 ? (
                 <AlertInfo severity="success" description={medals.cuatro[0]} />
-              ) : (
-                <AlertInfo severity="error" description={medals.cuatro[1]} />
-              )}
+              ) : null}
             </Typography>
             <Typography gutterBottom variant="h5" component="div">
               Comparte tus resultados
             </Typography>
             <Typography variant="body2" color="text.secondary">
-              {nameUser()} ha conseguido las medallas: {medalsInfo()}, si deseas
-              realizar la experiencia ingresa a
-              https://smafinal.gregoryinnovo.repl.co/ para descubrir las tuyas
+              {nameUser()} {medalsInfo()}, si deseas realizar la experiencia
+              ingresa a {window.location.hostname} para descubrir
+              las tuyas
             </Typography>
           </CardContent>
           <CardActions>
@@ -173,7 +194,7 @@ export default function Results() {
                 Escoge tu red social preferida
               </Typography>
               <Typography id="transition-modal-description" sx={{ mt: 2 }}>
-                Comparte tus resultados en 
+                Comparte tus resultados en
               </Typography>
               <FacebookShareButton
                 url={youtubeUrl}
@@ -207,4 +228,3 @@ export default function Results() {
     </div>
   );
 }
-

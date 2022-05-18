@@ -10,7 +10,7 @@ export default function Opcion1() {
   return (
     <OpcionCorrecta 
         linkUrl="/context3/context3"
-        videoId="k7SiQj9cz-w"
+        videoId="https://res.cloudinary.com/gregoryinnovo/video/upload/v1652886797/2.1_dwnsgw.mp4"
         medalMessage={medals.dos[0]}
         value={2}
     />

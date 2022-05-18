@@ -9,10 +9,10 @@ export default function Incorrect1() {
   return (
     <OpcionIncorrecta 
       linkUrl="/context2/context2"
-      videoId="Isib0r6DPGM"
+      videoId="https://res.cloudinary.com/gregoryinnovo/video/upload/v1652886800/2.2_jmvifl.mp4"
       medalMessage={medals.dos[1]}
       value={2}
-      secondsReturn={10}
+      secondsReturn={32}
     />
   )
 }

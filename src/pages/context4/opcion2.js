@@ -9,10 +9,10 @@ export default function Incorrect1() {
   return (
     <OpcionIncorrecta 
       linkUrl="/context4/context4"
-      videoId="Isib0r6DPGM"
+      videoId="https://res.cloudinary.com/gregoryinnovo/video/upload/v1652886847/4.2_ly9cuc.mp4"
       medalMessage={medals.cuatro[1]}
       value={4}
-      secondsReturn={11}
+      secondsReturn={10}
     />
   )
 }

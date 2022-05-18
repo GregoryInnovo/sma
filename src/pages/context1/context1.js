@@ -1,20 +1,20 @@
-import Head from 'next/head'
-import Image from 'next/image'
-import Link from 'next/link'
-import styles from '@styles/Home.module.css'
+import Head from "next/head";
+import Image from "next/image";
+import Link from "next/link";
+import styles from "@styles/Home.module.css";
 import YouTube from "react-youtube";
-import {useState, useEffect, useContext } from 'react';
-import {AppContext} from '@context/AppContext';
+import { useState, useEffect, useContext } from "react";
+import { AppContext } from "@context/AppContext";
 /*
   Página donde se muestra el contexto 2 con video con las 2 
   opciones
 */
-import Backdrop from '@mui/material/Backdrop';
-import Box from '@mui/material/Box';
-import Modal from '@mui/material/Modal';
-import Fade from '@mui/material/Fade';
-import Button from '@mui/material/Button';
-import Typography from '@mui/material/Typography';
+import Backdrop from "@mui/material/Backdrop";
+import Box from "@mui/material/Box";
+import Modal from "@mui/material/Modal";
+import Fade from "@mui/material/Fade";
+import Button from "@mui/material/Button";
+import Typography from "@mui/material/Typography";
 
 /* 
   Importar imágenes
@@ -22,48 +22,46 @@ import Typography from '@mui/material/Typography';
 import imgs from "@assets/img/imgs.js";
 
 const style = {
-  position: 'absolute',
-  top: '50%',
-  left: '50%',
-  transform: 'translate(-50%, -50%)',
+  position: "absolute",
+  top: "50%",
+  left: "50%",
+  transform: "translate(-50%, -50%)",
   width: 400,
-  bgcolor: 'background.paper',
-  border: '2px solid #000',
+  bgcolor: "background.paper",
+  border: "2px solid #000",
   boxShadow: 24,
   p: 4,
-  justifyContent:"space-around",
-  alignItems:"center",
-  direction:'column'
+  justifyContent: "space-around",
+  alignItems: "center",
+  direction: "column",
 };
 
 export default function Context1() {
+  const [isEnd, setIsEnd] = useState(false);
+  const [seconds, setSeconds] = useState(0);
+  const [visible, setIsVisible] = useState(false);
+  const [open, setOpen] = useState(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
 
- const [isEnd, setIsEnd] = useState(false);
- const [seconds, setSeconds] = useState(0);
- const [visible, setIsVisible] = useState(false);
- const [open, setOpen] = useState(false);
- const handleOpen = () => setOpen(true);
- const handleClose = () => setOpen(false);
-
- const { secVideo } = useContext(AppContext);
- const [ sharedState ] = secVideo;
+  const { secVideo } = useContext(AppContext);
+  const [sharedState] = secVideo;
 
   useEffect(() => {
     let vid = document.getElementById("myVideo");
     vid.currentTime = sharedState;
     vid.webkitRequestFullScreen();
-    
-    vid.addEventListener("timeupdate", function(){
-        //currentTime use second, if you want min *60
-    if(vid.currentTime >= 10) {
-          setIsVisible(true);
-        } else if(vid.currentTime >= 45) {
-      vid.pause();
-        }
-    });
 
-    
-  }, [])
+    vid.addEventListener("timeupdate", function () {
+      //currentTime use second, if you want min *60
+      if (vid.currentTime >= 35) {
+        setIsVisible(true);
+      }
+      if (vid.currentTime >= 45) {
+        vid.pause();
+      }
+    });
+  }, []);
 
   return (
     <div className={styles.container}>
@@ -74,27 +72,56 @@ export default function Context1() {
       </Head>
 
       <main>
-        <video id="myVideo" src="https://res.cloudinary.com/gregoryinnovo/video/upload/v1652886794/1_zd5zh4.mp4" width="100%" height="780" controls autoPlay>
-              <source src="movie.mp4" type="video/mp4" />
+        <video
+          id="myVideo"
+          src="https://res.cloudinary.com/gregoryinnovo/video/upload/v1652886794/1_zd5zh4.mp4"
+          width="100%"
+          height="780"
+          controls
+          autoPlay
+        >
+          <source src="movie.mp4" type="video/mp4" />
         </video>
-        {
-          visible && 
-            <div className="containerOptions">
-              <Typography sx={{ mt: 2, backgroundColor: "primary.dark", color: "white", fontWeight: "bold", fontSize: 18, textAlign: "center", p:1 }}>
+        {visible && (
+          <div className="containerOptions">
+            <Typography
+              sx={{
+                mt: 2,
+                backgroundColor: "primary.dark",
+                color: "white",
+                fontWeight: "bold",
+                fontSize: 18,
+                textAlign: "center",
+                p: 1,
+              }}
+            >
               ¿Qué decidió estudiar Sergio fajardo?
             </Typography>
-            <Button variant="contained" sx={{mt: 1, mb:1}}>
-              <img src={imgs[0]} alt="imagen de la opcion 1" width="150" height="150" />
-              <Link sx={{mt:2}} href="/context1/opcion1">Matemáticas</Link>
+            <Button variant="contained" sx={{ mt: 1, mb: 1 }}>
+              <img
+                src={imgs[0]}
+                alt="imagen de la opcion 1"
+                width="150"
+                height="150"
+              />
+              <Link sx={{ mt: 2 }} href="/context1/opcion1">
+                Matemáticas
+              </Link>
             </Button>
-            <Button variant="contained" sx={{mt: 1, mb:1}}>
-              <img src={imgs[1]} alt="imagen de la opcion 2" width="150" height="150" />
-              <Link sx={{mt:2}} href="/context1/opcion2">Astronomía</Link>
+            <Button variant="contained" sx={{ mt: 1, mb: 1 }}>
+              <img
+                src={imgs[1]}
+                alt="imagen de la opcion 2"
+                width="150"
+                height="150"
+              />
+              <Link sx={{ mt: 2 }} href="/context1/opcion2">
+                Astronomía
+              </Link>
             </Button>
-            </div>
-        }
+          </div>
+        )}
       </main>
     </div>
-  )
+  );
 }
-

@@ -1,48 +1,59 @@
-import Head from 'next/head'
-import Image from 'next/image'
-import Link from 'next/link'
-import styles from '@styles/Home.module.css'
+import Head from "next/head";
+import Image from "next/image";
+import Link from "next/link";
+import styles from "@styles/Home.module.css";
 import YouTube from "react-youtube";
-import {useState, useEffect, useContext } from 'react';
-
-import {AppContext} from '@context/AppContext';
+import { useState, useEffect, useContext } from "react";
+import imgs from "@assets/img/imgs.js";
+import { AppContext } from "@context/AppContext";
 /*
   Página donde se muestra el contexto 2 con video con las 2 
   opciones
 */
-import Backdrop from '@mui/material/Backdrop';
-import Box from '@mui/material/Box';
-import Modal from '@mui/material/Modal';
-import Fade from '@mui/material/Fade';
-import Button from '@mui/material/Button';
-import Typography from '@mui/material/Typography';
-
+import Backdrop from "@mui/material/Backdrop";
+import Box from "@mui/material/Box";
+import Modal from "@mui/material/Modal";
+import Fade from "@mui/material/Fade";
+import Button from "@mui/material/Button";
+import Typography from "@mui/material/Typography";
 
 const style = {
-  position: 'absolute',
-  top: '50%',
-  left: '50%',
-  transform: 'translate(-50%, -50%)',
+  position: "absolute",
+  top: "50%",
+  left: "50%",
+  transform: "translate(-50%, -50%)",
   width: 400,
-  bgcolor: 'background.paper',
-  border: '2px solid #000',
+  bgcolor: "background.paper",
+  border: "2px solid #000",
   boxShadow: 24,
   p: 4,
-  justifyContent:"space-around",
-  alignItems:"center",
-  direction:'column'
+  justifyContent: "space-around",
+  alignItems: "center",
+  direction: "column",
 };
 
 export default function Context2() {
+  const [isEnd, setIsEnd] = useState(false);
+  const [seconds, setSeconds] = useState(0);
+  const [open, setOpen] = useState(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
 
- const [isEnd, setIsEnd] = useState(false);
- const [seconds, setSeconds] = useState(0);
- const [open, setOpen] = useState(false);
- const handleOpen = () => setOpen(true);
- const handleClose = () => setOpen(false);
+  const { secVideo } = useContext(AppContext);
+  const [sharedState] = secVideo;
+  const [visible, setIsVisible] = useState(false);
+  useEffect(() => {
+    let vid = document.getElementById("myVideo");
+    vid.currentTime = sharedState;
+    vid.webkitRequestFullScreen();
 
- const { secVideo } = useContext(AppContext);
- const [ sharedState ] = secVideo;
+    vid.addEventListener("timeupdate", function () {
+      //currentTime use second, if you want min *60
+      if (vid.currentTime >= 41) {
+        setIsVisible(true);
+      }
+    });
+  }, []);
 
   return (
     <div className={styles.container}>
@@ -53,63 +64,56 @@ export default function Context2() {
       </Head>
 
       <main>
-        <YouTube 
-          videoId="hrsL-El8Lus" 
-          opts={{
-            height: "780",
-            width: "100%",
-            playerVars: {
-              autoplay: 1,
-              start: sharedState,
-          }}}
-          onEnd={() => {
-            setIsEnd(true)
-            handleOpen()
-          }}
-        />
-       
-      <Modal
-        aria-labelledby="transition-modal-title"
-        aria-describedby="transition-modal-description"
-        open={open}
-        onClose={handleClose}
-        closeAfterTransition
-        BackdropComponent={Backdrop}
-        BackdropProps={{
-          timeout: 500,
-        }}
-      >
-        <Fade in={open}>
-          <Box sx={style}>
-            <Typography id="transition-modal-title" variant="h6" component="h2">
-              Pregunta 2
-            </Typography>
-            {/* TODO cambiar la pregunta y opciones */}
-            <Typography id="transition-modal-description" sx={{ mt: 2 }}>
+        <video
+          id="myVideo"
+          src="https://res.cloudinary.com/gregoryinnovo/video/upload/v1652886807/2_zybcq4.mp4"
+          width="100%"
+          height="780"
+          controls
+          autoPlay
+        >
+          <source src="movie.mp4" type="video/mp4" />
+        </video>
+        {visible && (
+          <div className="containerOptions">
+            <Typography
+              sx={{
+                mt: 2,
+                backgroundColor: "primary.dark",
+                color: "white",
+                fontWeight: "bold",
+                fontSize: 18,
+                textAlign: "center",
+                p: 1,
+              }}
+            >
               Sergio fajardo se lanzó para la...
             </Typography>
-            <Button>
-            <Link sx={{mt:2}} href="/context2/opcion2">Gobernación</Link>
+            <Button variant="contained" sx={{ mt: 1, mb: 1 }}>
+              <img
+                src={imgs[2]}
+                alt="imagen de la opcion 1"
+                width="150"
+                height="150"
+              />
+              <Link sx={{ mt: 2 }} href="/context2/opcion2">
+                Gobernación
+              </Link>
             </Button>
-            <Button>
-            <Link sx={{mt:2}} href="/context2/opcion1">Alcaldía</Link>
+            <Button variant="contained" sx={{ mt: 1, mb: 1 }}>
+              <img
+                src={imgs[3]}
+                alt="imagen de la opcion 2"
+                width="250"
+                height="150"
+              />
+              <Link sx={{ mt: 2 }} href="/context2/opcion1">
+                Alcaldía
+              </Link>
             </Button>
-          </Box>
-        </Fade>
-      </Modal>
-        {
-          isEnd &&
-          (
-            <div className={styles.containerOptions}>
-              <h3 className={styles.titleOptions}>
-                ¿Qué deberias hacer?
-              </h3>
-              <Button onClick={handleOpen}>Abrir preguntas</Button>
-            </div>
-          )
-        }
+          </div>
+        )}
       </main>
     </div>
-  )
+  );
 }
-

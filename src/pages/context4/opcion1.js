@@ -10,7 +10,7 @@ export default function Opcion1() {
   return (
     <OpcionCorrecta 
         linkUrl="/results/results"
-        videoId="k7SiQj9cz-w"
+        videoId="https://res.cloudinary.com/gregoryinnovo/video/upload/v1652886835/4.1_lqvkyf.mp4"
         medalMessage={medals.cuatro[0]}
         value={4}
     />

@@ -9,7 +9,7 @@ export default function Incorrect1() {
   return (
     <OpcionIncorrecta 
       linkUrl="/context1/context1"
-      videoId="Isib0r6DPGM"
+      videoId="https://res.cloudinary.com/gregoryinnovo/video/upload/v1652886794/1.2_rcm6lb.mp4"
       medalMessage={medals.uno[1]}
       value={1}
       secondsReturn={30}

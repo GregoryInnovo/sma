@@ -17,23 +17,41 @@ const Alert = React.forwardRef(function Alert(props, ref) {
   Opción correcta de todos los contextos
 */
 
-export default function OpcionCorrecta({ value, linkUrl, videoId, medalMessage }) {
+export default function OpcionCorrecta({
+  value,
+  linkUrl,
+  videoId,
+  medalMessage,
+}) {
   const [isEnd, setIsEnd] = useState(false);
   const [open, setOpen] = useState(false);
 
-  const { secVideo, medallaUno, medallaDos, medallaTres, medallaCuatro } = useContext(AppContext);
+  const { secVideo, medallaUno, medallaDos, medallaTres, medallaCuatro } =
+    useContext(AppContext);
   const [sharedState, setSharedState] = secVideo;
-  const [medalla1, setMedalla1 ] = medallaUno;
-  const [medalla2, setMedalla2 ] = medallaDos;
-  const [medalla3, setMedalla3 ] = medallaTres;
-  const [medalla4, setMedalla4 ] = medallaCuatro;
+  const [medalla1, setMedalla1] = medallaUno;
+  const [medalla2, setMedalla2] = medallaDos;
+  const [medalla3, setMedalla3] = medallaTres;
+  const [medalla4, setMedalla4] = medallaCuatro;
 
   const handleClick = () => {
     setOpen(true);
   };
 
   useEffect(() => {
+    setSharedState(0);
     showMedals();
+    let vid = document.getElementById("myVideo");
+    vid.currentTime = 0;
+    vid.webkitRequestFullScreen();
+
+    vid.addEventListener("timeupdate", function () {
+      //currentTime use second, if you want min *60
+      if (vid.currentTime >= 5) {
+        
+        setIsEnd(true);
+      }
+    });
   }, []);
 
   const showMedals = () => {
@@ -57,7 +75,7 @@ export default function OpcionCorrecta({ value, linkUrl, videoId, medalMessage }
         }
         break;
       case 3:
-        if(medalla3 != 1) {
+        if (medalla3 != 1) {
           handleClick();
           setMedalla3(2);
           console.log("Muestro la medalla obtenida");
@@ -66,7 +84,7 @@ export default function OpcionCorrecta({ value, linkUrl, videoId, medalMessage }
         }
         break;
       case 4:
-        if(medalla4 != 1) {
+        if (medalla4 != 1) {
           handleClick();
           setMedalla4(2);
           console.log("Muestro la medalla obtenida");
@@ -84,7 +102,7 @@ export default function OpcionCorrecta({ value, linkUrl, videoId, medalMessage }
     if (reason === "clickaway") {
       return;
     }
-    
+
     setOpen(false);
   };
 
@@ -96,7 +114,7 @@ export default function OpcionCorrecta({ value, linkUrl, videoId, medalMessage }
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-        <main>
+      <main>
         <Snackbar open={open} autoHideDuration={6000} onClose={handleClose}>
           <Alert
             onClose={handleClose}
@@ -106,7 +124,18 @@ export default function OpcionCorrecta({ value, linkUrl, videoId, medalMessage }
             Medalla conseguida: {medalMessage}
           </Alert>
         </Snackbar>
-        <YouTube
+
+        <video
+          id="myVideo"
+          src={videoId}
+          width="100%"
+          height="780"
+          controls
+          autoPlay
+        >
+          <source src="movie.mp4" type="video/mp4" />
+        </video>
+        {/* <YouTube
           videoId={videoId}
           opts={{
             height: "780",
@@ -119,7 +148,7 @@ export default function OpcionCorrecta({ value, linkUrl, videoId, medalMessage }
             setSharedState(0);
             setIsEnd(true);
           }}
-        />
+        /> */}
       </main>
 
       {isEnd && (
