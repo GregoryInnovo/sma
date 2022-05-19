@@ -45,7 +45,6 @@ export default function Context2() {
   useEffect(() => {
     let vid = document.getElementById("myVideo");
     vid.currentTime = sharedState;
-    vid.webkitRequestFullScreen();
 
     vid.addEventListener("timeupdate", function () {
       //currentTime use second, if you want min *60
