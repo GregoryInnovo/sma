@@ -30,3 +30,16 @@ button: hover {
   flex-direction: column;
   align-items: center;
 }
+
+.layout {
+  border: 3rem solid black;
+}
+
+.obtain {
+  background-color: green;
+}
+
+.notObtain {
+  filter: opacity(50%);
+  filter: grayscale(100%);
+}

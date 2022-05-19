@@ -74,28 +74,27 @@ export default function Results() {
     let med4 = medalla4 === 2 ? medals.cuatro[0] : medals.cuatro[1];
 
     // return `${med1}, ${med2}, ${med3} y ${med4}`;
-    if (medalla1 === 2 && medalla2 === 2 && medalla3 === 2 && medalla4 === 2) {
-      return `ha conseguido las medallas:${med1}, ${med2}, ${med3} y ${med4}`;
-    } else if (medalla1 === 2 && medalla2 === 2 && medalla3 === 2) {
-      return `ha conseguido las medallas:${med1}, ${med2}, ${med3}`;
-    } else if (medalla3 === 2 && medalla4 === 2) {
-      return `ha conseguido las medallas:${med3} y ${med4}`;
-    } else if (medalla1 === 2 && medalla2 === 2) {
-      return `ha conseguido las medallas:${med1} y ${med2}`;
-    }
-    else if (medalla1 === 2 && medalla2 === 2) {
-      return `ha conseguido las medallas:${med1}, ${med2}`;
-    } else if (medalla1 === 2) {
-      return `ha conseguido la medalla: ${med1}`;
-    } else if (medalla2 === 2) {
-      return `ha conseguido la medalla: ${med2}`;
-    } else if (medalla3 === 2) {
-      return `ha conseguido la medalla: ${med3}`;
-    } else if (medalla4 === 2) {
-      return `ha conseguido la medalla: ${med4}`;
+
+    // realizar un ciclo for para que muestre las medallas que obtuvo el usuario que lo guarde en un string y retorne dicho valor
+    let medallas = [];
+    medallas.push(med1);
+    medallas.push(med2);
+    medallas.push(med3);
+    medallas.push(med4);
+    let medallasString = "ha conseguido las medallas: ";
+    if (medalla1 === 2 || medalla2 === 2 || medalla3 === 2 || medalla4 === 2) {
+      for (let i = 0; i < 4; i++) {
+        if (medallas[i] !== "Ups... respuesta incorrecta") {
+          medallasString += `${medallas[i]}, `;
+        }
+      }
+      return medallasString;
     } else {
+
       return `no ha conseguido ninguna medalla`;
     }
+
+  
   };
 
   const youtubeUrl = "https://youtu.be/GdVpr208yIQ";
@@ -161,8 +160,8 @@ export default function Results() {
               Comparte tus resultados
             </Typography>
             <Typography variant="body2" color="text.secondary">
-              {nameUser()} {medalsInfo()}, si deseas realizar la experiencia
-              ingresa a {window.location.hostname} para descubrir
+              {nameUser()} {medalsInfo()} si deseas realizar la experiencia
+              ingresa a "asknajdbjkabdk" para descubrir
               las tuyas
             </Typography>
           </CardContent>
