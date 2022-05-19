@@ -43,7 +43,6 @@ export default function OpcionCorrecta({
     showMedals();
     let vid = document.getElementById("myVideo");
     vid.currentTime = 0;
-    vid.webkitRequestFullScreen();
 
     vid.addEventListener("timeupdate", function () {
       //currentTime use second, if you want min *60

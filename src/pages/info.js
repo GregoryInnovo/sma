@@ -42,8 +42,7 @@ export default function Info() {
             <Typography gutterBottom variant="h5" component="div">
               Sergio Fajardo
             </Typography>
-            <Typography variant="body2" color="text.secondary"></Typography>
-            <Typography variant="body2" color="text.secondary"></Typography>
+            
             <Typography variant="body2" color="text.secondary" className='styles_Typography_t'>
               Sergio Fajardo, nacido en la ciudad de Medellín Antioquía, es
               matemático, profesor e investigador, un candidato presidencial del
@@ -106,7 +105,23 @@ export default function Info() {
             </Typography>
             <br></br>
             <br></br>
-            <Typography gutterBottom variant="h5" component="div" >
+            <Typography gutterBottom variant="h5" component="div">
+              Principales propuesta
+            </Typography>
+            <img 
+              src="https://img.lalr.co/cms/2022/04/11171447/al_sergio_fajardo_p14y15.jpg"
+              width="100%"
+              height="auto"
+            />
+            <Typography gutterBottom variant="h5" component="div">
+              Premios y reconocimientos
+            </Typography>
+            <img 
+              src="https://compromisociudadano.com/wp-content/uploads/2020/04/premios-reconocimientos.jpg"
+              width="100%"
+              height="auto"
+            />
+            <Typography gutterBottom variant="h5" component="div">
               Red de contactos
             </Typography>
             <Typography variant="body2" color="text.secondary" className='styles_Typography'>
@@ -131,19 +146,16 @@ export default function Info() {
               Regresar al inicio
             </Link>
           </Button>
-
-          <CardActions>
-            <YouTube
+          <YouTube
               videoId="c9ZgxpkQvpo"
               opts={{
-                height: "100%",
+                height: "420",
                 width: "100%",
                 playerVars: {
                   autoplay: 1,
                 },
               }}
             />
-          </CardActions>
         </Card>
       </Stack>
     </div>

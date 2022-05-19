@@ -50,7 +50,6 @@ export default function Context1() {
   useEffect(() => {
     let vid = document.getElementById("myVideo");
     vid.currentTime = sharedState;
-    vid.webkitRequestFullScreen();
 
     vid.addEventListener("timeupdate", function () {
       //currentTime use second, if you want min *60
@@ -98,25 +97,27 @@ export default function Context1() {
               ¿Qué decidió estudiar Sergio fajardo?
             </Typography>
             <Button variant="contained" sx={{ mt: 1, mb: 1 }}>
-              <img
-                src={imgs[0]}
-                alt="imagen de la opcion 1"
-                width="150"
-                height="150"
-              />
+              
+              <figcaption>Matemáticas</figcaption>
               <Link sx={{ mt: 2 }} href="/context1/opcion1">
-                Matemáticas
+                <img
+                  src={imgs[0]}
+                  alt="imagen de la opcion 1"
+                  width="150"
+                  height="150"
+                />
               </Link>
             </Button>
             <Button variant="contained" sx={{ mt: 1, mb: 1 }}>
+              
+              <figcaption>Astronomía</figcaption>
+              <Link sx={{ mt: 2 }} href="/context1/opcion2">
               <img
                 src={imgs[1]}
                 alt="imagen de la opcion 2"
                 width="150"
                 height="150"
               />
-              <Link sx={{ mt: 2 }} href="/context1/opcion2">
-                Astronomía
               </Link>
             </Button>
           </div>

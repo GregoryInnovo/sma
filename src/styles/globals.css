@@ -26,7 +26,7 @@ a {
 
 .containerOptions {
   position: absolute;
-  top: 65%;
+  top: 50%;
   left: 50%;
   transform: translate(-50%, -50%); 
   background-color: transparent;
@@ -38,11 +38,12 @@ a {
 }
 
 .layout {
-  border: 3rem solid black;
+  border: 1rem dashed rgb(219, 192, 19);
 }
 
 .obtain {
-  background-color: green;
+  filter: opacity(100%);
+  filter: grayscale(0%);
 }
 
 .notObtain {
@@ -146,3 +147,14 @@ a {
   font-style: normal;
   border-radius: 8px;
 } */
+.medals {
+  position: absolute;
+  top: 2%;
+  right: 5%;
+}
+
+.logoPosition {
+  position: absolute;
+  top: 0%;
+  left: 2%;
+}
