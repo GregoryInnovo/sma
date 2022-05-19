@@ -7,7 +7,6 @@ import { useState, useEffect, useContext } from "react";
 import Card from "@mui/material/Card";
 import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
-import CardMedia from "@mui/material/CardMedia";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import { AppContext } from "@context/AppContext";
@@ -17,6 +16,7 @@ import Backdrop from "@mui/material/Backdrop";
 import Box from "@mui/material/Box";
 import Modal from "@mui/material/Modal";
 import Fade from "@mui/material/Fade";
+
 const style = {
   position: "absolute",
   top: "50%",
@@ -54,11 +54,11 @@ export default function Results() {
   const { medallaUno, medallaDos, medallaTres, medallaCuatro, userName } =
     useContext(AppContext);
 
-  const [medalla1, setMedalla1] = medallaUno;
-  const [medalla2, setMedalla2] = medallaDos;
-  const [medalla3, setMedalla3] = medallaTres;
-  const [medalla4, setMedalla4] = medallaCuatro;
-  const [name, setName] = userName;
+  const [medalla1] = medallaUno;
+  const [medalla2] = medallaDos;
+  const [medalla3] = medallaTres;
+  const [medalla4] = medallaCuatro;
+  const [name] = userName;
 
   const nameUser = () => {
     return name;
@@ -87,15 +87,12 @@ export default function Results() {
       }
       return medallasString;
     } else {
-
       return `no ha conseguido ninguna medalla`;
     }
-
-  
   };
 
   const youtubeUrl = "https://youtu.be/c9ZgxpkQvpo";
-  const facebookTitle = `${nameUser()} ha conseguido las insignias: ${medalsInfo()}, si deseas realizar la experiencia ingresa a https://pruebasma.gregoryinnovo.repl.co/ para descubrir las tuyas`;
+  const facebookTitle = `${nameUser()} ha conseguido las insignias: ${medalsInfo()} si deseas realizar la experiencia ingresa a https://sma.gregoryinnovo.repl.co/ para descubrir las tuyas`;
 
   return (
     <div className={styles.container}>
@@ -106,7 +103,7 @@ export default function Results() {
       </Head>
 
       <main className={styles.main}>
-        <Card className='styles_card' sx={{ maxWidth: 645 }}>
+        <Card className="styles_card" sx={{ maxWidth: 645 }}>
           <video
             id="myVideo"
             src="https://res.cloudinary.com/gregoryinnovo/video/upload/v1652886872/5_fttuwb.mp4"
@@ -124,9 +121,9 @@ export default function Results() {
             <Typography variant="body2" color="text.secondary">
               {nameUser()}
             </Typography>
-            {medalla1 === 2 &&
-            medalla2 === 2 &&
-            medalla3 === 2 &&
+            {medalla1 === 2 ||
+            medalla2 === 2 ||
+            medalla3 === 2 ||
             medalla4 === 2 ? (
               <Typography variant="h5" component="div">
                 Insignias obtenidas
@@ -158,12 +155,16 @@ export default function Results() {
             </Typography>
             <Typography variant="body2" color="text.secondary">
               {nameUser()} {medalsInfo()} si deseas realizar la experiencia
-              ingresa a https://sma.gregoryinnovo.repl.co para descubrir
-              las tuyas
+              ingresa a https://sma.gregoryinnovo.repl.co para descubrir las
+              tuyas
             </Typography>
           </CardContent>
           <CardActions>
-            <Button className='styles_ButtonVolver' size="small" onClick={handleOpen}>
+            <Button
+              className="styles_ButtonVolver"
+              size="small"
+              onClick={handleOpen}
+            >
               ¡Compartir!
             </Button>
           </CardActions>
@@ -195,7 +196,7 @@ export default function Results() {
               <FacebookShareButton
                 url={youtubeUrl}
                 quote={facebookTitle}
-                className="Demo__some-network__share-button"
+                className="share-button"
               >
                 <FacebookIcon size={32} round />
               </FacebookShareButton>
@@ -204,7 +205,7 @@ export default function Results() {
                 url={youtubeUrl}
                 title={facebookTitle}
                 separator=":: "
-                className="Demo__some-network__share-button"
+                className="share-button"
               >
                 <WhatsappIcon size={32} round />
               </WhatsappShareButton>
@@ -213,7 +214,7 @@ export default function Results() {
                 url={youtubeUrl}
                 subject="SMA de los candidatos 2022"
                 body={facebookTitle}
-                className="Demo__some-network__share-button"
+                className="share-button"
               >
                 <EmailIcon size={32} round />
               </EmailShareButton>

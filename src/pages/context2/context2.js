@@ -73,7 +73,7 @@ export default function Context2() {
         >
           <source src="movie.mp4" type="video/mp4" />
         </video>
-        {true && (
+        {visible && (
           <div className="containerOptions">
             <Typography
               sx={{

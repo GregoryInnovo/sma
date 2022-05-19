@@ -2,23 +2,26 @@ import React, { useContext } from "react";
 import { AppContext } from "@context/AppContext";
 
 export default function Layout({ children }) {
-  const { medallaUno, medallaDos, medallaTres, medallaCuatro } =
+  const { medallaUno, medallaDos, medallaTres, medallaCuatro, userName } =
     useContext(AppContext);
 
   const [medalla1] = medallaUno;
   const [medalla2] = medallaDos;
   const [medalla3] = medallaTres;
   const [medalla4] = medallaCuatro;
+  const [name] = userName;
   return (
     <div className="layout">
-        <img
-          src="https://i.imgur.com/h9ei7v7.png"
-          alt="Logo"
-          width="auto"
-          height="100"
-          className="logoPosition"
-        />
+      <img
+        src="https://i.imgur.com/h9ei7v7.png"
+        alt="Logo"
+        width="auto"
+        height="100"
+        className="logoPosition"
+      />
+      <span className="namePosition">Hola, {name}</span>
       <div className="medals">
+        <p> Tus insignias</p>
         <img
           src="https://pngimg.com/uploads/medal/medal_PNG14495.png"
           alt="imagen de la opcion 1"

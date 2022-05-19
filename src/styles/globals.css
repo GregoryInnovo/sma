@@ -182,7 +182,7 @@ a {
 } */
 .medals {
   position: absolute;
-  top: 2%;
+  top: -3%;
   right: 5%;
 }
 
@@ -190,4 +190,18 @@ a {
   position: absolute;
   top: 0%;
   left: 2%;
+}
+
+.share-button {
+  margin: 0.5rem;
+}
+
+.namePosition {
+  position: absolute;
+  top: 4%;
+  right: 54%;
+  left: 46%;
+  font-size: 1.4rem;
+  width: 340px;
+  font-weight: bold;
 }

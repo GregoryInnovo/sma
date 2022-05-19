@@ -66,26 +66,14 @@ export default function Context4() {
               ¿Qué obras publicó?
             </Typography>
             <Button variant="contained" sx={{ mt: 1, mb: 1 }}>
-              {/* <img
-                src={imgs[2]}
-                alt="imagen de la opcion 1"
-                width="150"
-                height="150"
-              /> */}
               <Link sx={{ mt: 2 }} href="/context4/opcion1">
                 Medellín, del Miedo a la Esperanza y el libro Teoría Modelos de
                 Procesos Estocásticos.
               </Link>
             </Button>
             <Button variant="contained" sx={{ mt: 1, mb: 1 }}>
-              {/* <img
-                src={imgs[3]}
-                alt="imagen de la opcion 2"
-                width="250"
-                height="150"
-              /> */}
               <Link sx={{ mt: 2 }} href="/context4/opcion2">
-                En proyectos de energía sostenible como eólica.
+                En proyectos de energía sostenible como eólica, solar y geotérmica.
               </Link>
             </Button>
           </div>
