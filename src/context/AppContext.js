@@ -4,7 +4,7 @@ export const AppContext = createContext();
 
 export function AppWrapper({ children }) {
   const [sharedState, setSharedState] = useState(0);  
-  const [name, setName] = useState("...");  
+  const [name, setName] = useState("Sergio");  
   const [medalla1, setMedalla1] = useState(0);  
   const [medalla2, setMedalla2] = useState(0);  
   const [medalla3, setMedalla3] = useState(0);  

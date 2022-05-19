@@ -73,7 +73,7 @@ export default function Context2() {
         >
           <source src="movie.mp4" type="video/mp4" />
         </video>
-        {visible && (
+        {true && (
           <div className="containerOptions">
             <Typography
               sx={{
@@ -88,26 +88,34 @@ export default function Context2() {
             >
               Sergio fajardo se lanzó para la...
             </Typography>
-            <Button variant="contained" sx={{ mt: 1, mb: 1 }}>
-              <img
-                src={imgs[2]}
-                alt="imagen de la opcion 1"
-                width="150"
-                height="150"
-              />
+            <Button
+              className="styles_button_option"
+              variant="contained"
+              sx={{ mt: 1, mb: 1 }}
+            >
+              <figcaption>Gobernación</figcaption>
               <Link sx={{ mt: 2 }} href="/context2/opcion2">
-                Gobernación
+                <img
+                  src={imgs[2]}
+                  alt="imagen de la opcion 1"
+                  width="150"
+                  height="150"
+                />
               </Link>
             </Button>
-            <Button variant="contained" sx={{ mt: 1, mb: 1 }}>
-              <img
-                src={imgs[3]}
-                alt="imagen de la opcion 2"
-                width="250"
-                height="150"
-              />
+            <Button
+              className="styles_button_option"
+              variant="contained"
+              sx={{ mt: 1, mb: 1 }}
+            >
+              <figcaption>Alcaldía</figcaption>
               <Link sx={{ mt: 2 }} href="/context2/opcion1">
-                Alcaldía
+                <img
+                  src={imgs[3]}
+                  alt="imagen de la opcion 2"
+                  width="250"
+                  height="150"
+                />
               </Link>
             </Button>
           </div>

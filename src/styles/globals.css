@@ -4,8 +4,12 @@ body {
   margin: 0;
   font-family: cursive !important;
 }
+ 
+figcaption {
+  color: white !important;
+}
 
-p, div, h1, h2, h3, h4, a {
+p, div, h1, h2, h3, h4, a, figcaption {
   font-family: cursive !important;
   color: rgb(0, 2, 131);
   padding:5px;
@@ -20,9 +24,10 @@ a {
   box-sizing: border-box;
 }
 
-/* button: hover {
-  background-color: white;
-} */
+.styles_button_option{
+  display: flex;
+  flex-direction: column;
+}
 
 .containerOptions {
   position: absolute;
@@ -95,6 +100,34 @@ a {
 .styles_ButtonVolver :hover{
   width: 200px;
   padding: 3px;
+  font-family: cursive !important;
+  border-radius: 8px;
+  box-sizing: 3px;
+  background-color: rgb(255, 153, 0);
+  color: rgb(71, 19, 3);
+  box-shadow:  2px 2px 5px rgb(133, 80, 0);
+}
+
+.styles_Button_next{
+  width: 200px;
+  padding: 5px;
+  display: flex;
+  margin-left: 600px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  color:rgb(230, 230, 230);
+  font-family: cursive !important;
+  border-radius: 8px;
+  box-sizing: 3px;
+  border-color: orangered;
+  background-color: rgb(20, 5, 105);
+}
+
+.styles_Button_next :hover{
+  width: 200px;
+  padding: 3px;
+  margin-top: 10px;
+  margin-bottom: 10px;
   font-family: cursive !important;
   border-radius: 8px;
   box-sizing: 3px;

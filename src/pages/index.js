@@ -61,7 +61,7 @@ export default function Home() {
                 height="250"
         />
         <Typography className='styles_Typography'>
-          Bienvenido estudiante de la Universidad Autónoma de Occidente, MediaCollab, le permitirá obtener información de forma dinámica del candidato presidencial Sergio Fajardo.
+          Bienvenido estudiante de la Universidad Autónoma de Occidente, Media Collab, le permitirá obtener información de forma dinámica del candidato presidencial Sergio Fajardo.
         </Typography>
         <Typography className='styles_Typography'>
           Si desea, ingrese el nombre para iniciar.

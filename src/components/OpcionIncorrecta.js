@@ -124,24 +124,11 @@ export default function OpcionIncorrecta({
         >
           <source src="movie.mp4" type="video/mp4" />
         </video>
-        {/* <YouTube 
-          videoId={videoId}
-          opts={{
-            height: "780",
-            width: "100%",
-            playerVars: {
-              autoplay: 1,
-          }}}
-          onEnd={() => {
-            
-            setIsEnd(true)
-          }}
-        /> */}
       </main>
 
       {isEnd && (
         <main>
-          <Button>
+          <Button className='styles_Button_next'>
             <Link href={linkUrl}>Regresar</Link>
           </Button>
         </main>

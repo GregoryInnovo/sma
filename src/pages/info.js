@@ -58,53 +58,6 @@ export default function Info() {
               permitiéndole conocer profundamente los problemas del conflicto
               departamental con políticos, guerrilleros y empresarios.
             </Typography>
-            <Typography variant="body2" color="text.secondary" className='styles_Typography_t'>
-              Resaltando un poco su carrera política, en 1999 dio paso como
-              director del centro de ciencias y tecnologías gracias al apoyo del
-              vicepresidente Gustavo Bell y por su gran hoja de vida y
-              recorrido. “Después de una gobernación muy exitosa, Fajardo salió
-              con altos niveles de popularidad. Pero aún así no pudo dejar a su
-              sucesor Federico Restrepo en su silla. Le ganó ampliamente su
-              rival Luis Pérez, apoyado por Juan Manuel Santos y el
-              vicepresidente Germán Vargas. En la Alcaldía de Medellín tampoco
-              triunfó su ex secretario de Gobierno Alonso Salazar.
-            </Typography>
-            <Typography variant="body2" color="text.secondary" className='styles_Typography_t'>
-              En 2016, Fajardo hizo campaña a favor del plebiscito, y arrancó
-              con ella su campaña presidencial para el 2018. En junio de 2017,
-              oficializó la coalición de los Ni-ni con la senadora de la Alianza
-              Verde Claudia López y el del Polo Jorge Enrique Robledo. En
-              diciembre de 2017 y luego de recoger casi un millón de firmas para
-              inscribir su candidatura, hubo una crisis dentro de la coalición
-              porque no había acuerdo para escoger al candidato. Fajardo quería
-              que lo ungieron a él, mientras que Robledo y Claudia querían una
-              consulta en marzo. Al final el exgobernador ganó el pulso y fue
-              anunciado como el candidato presidencial del Polo y los Verdes. No
-              pudo, sin embargo, aglutinar las bases de izquierda de esos dos
-              partidos, que en su mayoría se fueron con Petro. En la primera
-              vuelta de las presidenciales de mayo de 2018 quedó tercero con 4,5
-              millones de votos, por debajo de Iván Duque (7,5 millones) y
-              Gustavo Petro (4,8 millones). Para la segunda vuelta votó en
-              blanco.
-            </Typography>
-            <Typography variant="body2" color="text.secondary" className='styles_Typography_t'>
-              En junio del 2020 la Fiscalía ordenó compulsar copias de la
-              denuncia por la que se detuvo al gobernador de Antioquia, Aníbal
-              Gaviria, para investigarlo a él también. Eso dado que la ejecución
-              del contrato que enloda a Gaviria también se llevó a cabo durante
-              su administración en la Gobernación de ese departamento. Tanto a
-              Gaviria como a Fajardo (al igual que a Luis Alfredo Ramos) los
-              investiga la Fiscalía por presunta corrupción en la construcción
-              de la troncal de La Paz en Caucasia, frente a lo cual Sergio
-              Fajardo reveló la liquidación del contrato se hizo antes de que él
-              se posesionó como Gobernador. En marzo de 2022 se convirtió, con
-              poco más de 700 mil votos, en el candidato oficial de la Coalición
-              Centro Esperanza. “Silla vacía - Marzo 22/2022 Información
-              recuperada en: La sillavacia
-              https://www.lasillavacia.com/quien-es-quien/sergio-fajardo
-            </Typography>
-            <br></br>
-            <br></br>
             <Typography gutterBottom variant="h5" component="div">
               Principales propuesta
             </Typography>

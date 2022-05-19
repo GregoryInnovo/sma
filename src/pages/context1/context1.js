@@ -1,48 +1,16 @@
 import Head from "next/head";
-import Image from "next/image";
 import Link from "next/link";
 import styles from "@styles/Home.module.css";
-import YouTube from "react-youtube";
 import { useState, useEffect, useContext } from "react";
 import { AppContext } from "@context/AppContext";
-/*
-  Página donde se muestra el contexto 2 con video con las 2 
-  opciones
-*/
-import Backdrop from "@mui/material/Backdrop";
-import Box from "@mui/material/Box";
-import Modal from "@mui/material/Modal";
-import Fade from "@mui/material/Fade";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
-
-/* 
-  Importar imágenes
-*/
 import imgs from "@assets/img/imgs.js";
 
-const style = {
-  position: "absolute",
-  top: "50%",
-  left: "50%",
-  transform: "translate(-50%, -50%)",
-  width: 400,
-  bgcolor: "background.paper",
-  border: "2px solid #000",
-  boxShadow: 24,
-  p: 4,
-  justifyContent: "space-around",
-  alignItems: "center",
-  direction: "column",
-};
 
 export default function Context1() {
-  const [isEnd, setIsEnd] = useState(false);
-  const [seconds, setSeconds] = useState(0);
   const [visible, setIsVisible] = useState(false);
   const [open, setOpen] = useState(false);
-  const handleOpen = () => setOpen(true);
-  const handleClose = () => setOpen(false);
 
   const { secVideo } = useContext(AppContext);
   const [sharedState] = secVideo;
@@ -96,7 +64,7 @@ export default function Context1() {
             >
               ¿Qué decidió estudiar Sergio fajardo?
             </Typography>
-            <Button variant="contained" sx={{ mt: 1, mb: 1 }}>
+            <Button  className='styles_button_option' variant="contained" sx={{ mt: 1, mb: 1 }}>
               
               <figcaption>Matemáticas</figcaption>
               <Link sx={{ mt: 2 }} href="/context1/opcion1">
@@ -108,7 +76,7 @@ export default function Context1() {
                 />
               </Link>
             </Button>
-            <Button variant="contained" sx={{ mt: 1, mb: 1 }}>
+            <Button className='styles_button_option' variant="contained" sx={{ mt: 1, mb: 1 }}>
               
               <figcaption>Astronomía</figcaption>
               <Link sx={{ mt: 2 }} href="/context1/opcion2">

@@ -47,12 +47,9 @@ import {
 */
 
 export default function Results() {
-  const [isEnd, setIsEnd] = useState(false);
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
-  const [seconds, setSeconds] = useState(0);
-  const { sharedState } = useContext(AppContext);
 
   const { medallaUno, medallaDos, medallaTres, medallaCuatro, userName } =
     useContext(AppContext);
@@ -109,7 +106,7 @@ export default function Results() {
       </Head>
 
       <main className={styles.main}>
-        <Card sx={{ maxWidth: 645 }}>
+        <Card className='styles_card' sx={{ maxWidth: 645 }}>
           <video
             id="myVideo"
             src="https://res.cloudinary.com/gregoryinnovo/video/upload/v1652886872/5_fttuwb.mp4"
@@ -121,7 +118,7 @@ export default function Results() {
             <source src="movie.mp4" type="video/mp4" />
           </video>
           <CardContent>
-            <Typography gutterBottom variant="h5" component="div">
+            <Typography variant="h5" component="div">
               Tus resultados
             </Typography>
             <Typography variant="body2" color="text.secondary">
@@ -131,7 +128,7 @@ export default function Results() {
             medalla2 === 2 &&
             medalla3 === 2 &&
             medalla4 === 2 ? (
-              <Typography gutterBottom variant="h5" component="div">
+              <Typography variant="h5" component="div">
                 Insignias obtenidas
               </Typography>
             ) : null}
@@ -156,7 +153,7 @@ export default function Results() {
                 <AlertInfo severity="success" description={medals.cuatro[0]} />
               ) : null}
             </Typography>
-            <Typography gutterBottom variant="h5" component="div">
+            <Typography variant="h5" component="div">
               Comparte tus resultados
             </Typography>
             <Typography variant="body2" color="text.secondary">
@@ -166,8 +163,8 @@ export default function Results() {
             </Typography>
           </CardContent>
           <CardActions>
-            <Button size="small" onClick={handleOpen}>
-              Share
+            <Button className='styles_ButtonVolver' size="small" onClick={handleOpen}>
+              ¡Compartir!
             </Button>
           </CardActions>
         </Card>

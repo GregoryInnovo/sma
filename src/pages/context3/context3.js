@@ -67,31 +67,13 @@ export default function Context3() {
               ¿Qué hizo durante su alcaldía?
             </Typography>
             <Button variant="contained" sx={{ mt: 1, mb: 1 }}>
-              {/* <img
-                src={imgs[2]}
-                alt="imagen de la opcion 1"
-                width="150"
-                height="150"
-              /> */}
               <Link sx={{ mt: 2 }} href="/context3/opcion2">
-                Se construyó e inauguró, con presencia de los entonces reyes de
-                España Juan Carlos I y Sofía de Grecia, la Biblioteca España,
-                financiada con recursos internacionales Corona Española, la cual
-                tuvo que ser cerrada por problemas estructurales, hasta la fecha
-                enero de 2021.
+                La biblioteca de Hidroituango.
               </Link>
             </Button>
             <Button variant="contained" sx={{ mt: 1, mb: 1 }}>
-              {/* <img
-                src={imgs[3]}
-                alt="imagen de la opcion 2"
-                width="250"
-                height="150"
-              /> */}
               <Link sx={{ mt: 2 }} href="/context3/opcion1">
-                Cuando fui gobernador de Antioquia se comenzó la construcción de
-                hidroituango que va a suplir el 17% de la demanda energética del
-                país.
+                Construcción de hidroituango.
               </Link>
             </Button>
           </div>

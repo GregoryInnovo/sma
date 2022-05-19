@@ -4,7 +4,6 @@ import styles from "@styles/Home.module.css";
 import Link from "next/link";
 import { useContext } from "react";
 import { AppContext } from "@context/AppContext";
-import YouTube from "react-youtube";
 import Button from "@mui/material/Button";
 import Snackbar from "@mui/material/Snackbar";
 import MuiAlert from "@mui/material/Alert";
@@ -134,25 +133,12 @@ export default function OpcionCorrecta({
         >
           <source src="movie.mp4" type="video/mp4" />
         </video>
-        {/* <YouTube
-          videoId={videoId}
-          opts={{
-            height: "780",
-            width: "100%",
-            playerVars: {
-              autoplay: 1,
-            },
-          }}
-          onEnd={() => {
-            setSharedState(0);
-            setIsEnd(true);
-          }}
-        /> */}
+
       </main>
 
       {isEnd && (
         <main>
-          <Button>
+          <Button className='styles_Button_next' >
             <Link href={linkUrl}>Siguiente</Link>
           </Button>
         </main>
