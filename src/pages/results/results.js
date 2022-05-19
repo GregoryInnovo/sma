@@ -97,7 +97,7 @@ export default function Results() {
   
   };
 
-  const youtubeUrl = "https://youtu.be/GdVpr208yIQ";
+  const youtubeUrl = "https://youtu.be/c9ZgxpkQvpo";
   const facebookTitle = `${nameUser()} ha conseguido las insignias: ${medalsInfo()}, si deseas realizar la experiencia ingresa a https://pruebasma.gregoryinnovo.repl.co/ para descubrir las tuyas`;
 
   return (
@@ -161,7 +161,7 @@ export default function Results() {
             </Typography>
             <Typography variant="body2" color="text.secondary">
               {nameUser()} {medalsInfo()} si deseas realizar la experiencia
-              ingresa a "asknajdbjkabdk" para descubrir
+              ingresa a https://sma.gregoryinnovo.repl.co para descubrir
               las tuyas
             </Typography>
           </CardContent>

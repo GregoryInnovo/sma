@@ -34,7 +34,7 @@ export default function Info() {
         <Card sx={{ maxWidth: 645 }}>
           <CardMedia
             component="img"
-            height="140"
+            height="300"
             image="https://www.semana.com/resizer/DyT-vLgdK8Q85mAyxP68mSo12IQ=/1200x675/filters:format(jpg):quality(50)//cloudfront-us-east-1.images.arcpublishing.com/semana/ROSC5HZRYNBXRGDZPTA726TT24.jpg"
             alt="candidato"
           />
@@ -44,7 +44,7 @@ export default function Info() {
             </Typography>
             <Typography variant="body2" color="text.secondary"></Typography>
             <Typography variant="body2" color="text.secondary"></Typography>
-            <Typography variant="body2" color="text.secondary">
+            <Typography variant="body2" color="text.secondary" className='styles_Typography_t'>
               Sergio Fajardo, nacido en la ciudad de Medellín Antioquía, es
               matemático, profesor e investigador, un candidato presidencial del
               grupo Centro de esperanza, para las elecciones presidenciales del
@@ -59,7 +59,7 @@ export default function Info() {
               permitiéndole conocer profundamente los problemas del conflicto
               departamental con políticos, guerrilleros y empresarios.
             </Typography>
-            <Typography variant="body2" color="text.secondary">
+            <Typography variant="body2" color="text.secondary" className='styles_Typography_t'>
               Resaltando un poco su carrera política, en 1999 dio paso como
               director del centro de ciencias y tecnologías gracias al apoyo del
               vicepresidente Gustavo Bell y por su gran hoja de vida y
@@ -70,7 +70,7 @@ export default function Info() {
               vicepresidente Germán Vargas. En la Alcaldía de Medellín tampoco
               triunfó su ex secretario de Gobierno Alonso Salazar.
             </Typography>
-            <Typography variant="body2" color="text.secondary">
+            <Typography variant="body2" color="text.secondary" className='styles_Typography_t'>
               En 2016, Fajardo hizo campaña a favor del plebiscito, y arrancó
               con ella su campaña presidencial para el 2018. En junio de 2017,
               oficializó la coalición de los Ni-ni con la senadora de la Alianza
@@ -88,7 +88,7 @@ export default function Info() {
               Gustavo Petro (4,8 millones). Para la segunda vuelta votó en
               blanco.
             </Typography>
-            <Typography variant="body2" color="text.secondary">
+            <Typography variant="body2" color="text.secondary" className='styles_Typography_t'>
               En junio del 2020 la Fiscalía ordenó compulsar copias de la
               denuncia por la que se detuvo al gobernador de Antioquia, Aníbal
               Gaviria, para investigarlo a él también. Eso dado que la ejecución
@@ -104,11 +104,12 @@ export default function Info() {
               recuperada en: La sillavacia
               https://www.lasillavacia.com/quien-es-quien/sergio-fajardo
             </Typography>
-            <Typography gutterBottom variant="h5" component="div">
+            <br></br>
+            <br></br>
+            <Typography gutterBottom variant="h5" component="div" >
               Red de contactos
             </Typography>
-
-            <Typography variant="body2" color="text.secondary">
+            <Typography variant="body2" color="text.secondary" className='styles_Typography'>
               <ul>
                 <li>
                   Alfonso Prada: Ex Secretario General de la Presidencia y jefe
@@ -125,8 +126,8 @@ export default function Info() {
               </ul>
             </Typography>
           </CardContent>
-          <Button>
-            <Link variant="contained" sx={{ m: 15 }} href="/">
+          <Button className='styles_ButtonVolver'>
+            <Link variant="contained" sx={{ m: 15, ml: 30}} href="/">
               Regresar al inicio
             </Link>
           </Button>

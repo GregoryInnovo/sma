@@ -13,6 +13,8 @@ import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
+import imgs from "@assets/img/imgs.js";
+import { blueGrey } from '@mui/material/colors';
 
 /* 
   Pantalla principal donde podemos ir a ver la información del candidato o
@@ -47,33 +49,39 @@ export default function Home() {
       alignItems="center"
           sx={{m: 10, maxWidth: '100%', flexWrap: "wrap"}}
           >
-      <Card sx={{ maxWidth: 645 }}>
-      <CardContent>
-        <Typography gutterBottom variant="h5" component="div">
+      <Card className='styles_card' sx={{ maxWidth: 645 }}>
+      <CardContent className='styles_cardContent'>
+        {/* <Typography gutterBottom variant="h5" component="div">
           El diario de Fercho
+        </Typography> */}
+        <img
+                src={imgs[4]}
+                alt="El diario de Fercho"
+                width="450"
+                height="250"
+        />
+        <Typography className='styles_Typography'>
+          Bienvenido estudiante de la Universidad Autónoma de Occidente, MediaCollab, le permitirá obtener información de forma dinámica del candidato presidencial Sergio Fajardo.
         </Typography>
-        <Typography variant="body2" color="text.secondary">
-          Bienvenido estudiante de la Universidad Autónoma de Occidente, VIR POLITICA SMA, le permitirá obtener información de forma dinámica del candidato presidencial Sergio Fajardo.
-        </Typography>
-        <Typography variant="body2" color="text.secondary">
+        <Typography className='styles_Typography'>
           Si desea, ingrese el nombre para iniciar.
         </Typography>
-        <TextField
+        <TextField 
           id="outlined-name"
-          label="Nombre"
+          label="Nombre completo"
           placeholder="¿Cuál es tu nombre?"
           value={name}
           onChange={handleChange}
           sx={{mb: 3, mt:3}}
         />
       </CardContent>
-      <CardActions>
-        <Button>
+      <CardActions className='styles_cardActions'>
+        <Button className='styles_Button'>
           <Link variant="contained" href="/context1/context1" onClick={() => setName(name)} >Iniciar experiencia</Link>
         
         </Button>
-        <Button>
-        <Link variant="contained" href="/info" onClick={() => setName(name)} >Revisa la información del candidato</Link>
+        <Button className='styles_Button'>
+        <Link variant="contained" href="/info" onClick={() => setName(name)} >Más información</Link>
         </Button>
       </CardActions>
     </Card>
